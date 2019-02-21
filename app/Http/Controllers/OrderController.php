@@ -7,10 +7,10 @@ use App\OrderDetail;
 use App\Product;
 use App\User;
 use Illuminate\Support\Facades\Route;
-use Faker\Provider\Uuid;
 use Illuminate\Http\Request;
 use App\Order;
 use Illuminate\Support\Facades\Validator;
+use Agungjk\Rajaongkir\RajaOngkir;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
 class OrderController extends Controller
@@ -151,7 +151,7 @@ class OrderController extends Controller
             $data = Order::join('users', 'users.id', '=', 'order.user_id')
                 ->join('address', 'address.id', '=', 'order.user_id')
                 ->select('order.*', 'users.name as user_name', 'address.city as address_city')
-                ->get();;
+                ->get();
 
             return response()->json(compact('data'),200);
         } else if (JWTAuth::parseToken()->authenticate()->role == 'customer') {
@@ -179,7 +179,6 @@ class OrderController extends Controller
                 $amount += $value['product_price'];
             }
             $tax = 1.5 / 100 * $amount;
-
 
 //            $data = Order::where('order.id', $id)
 //                ->join('users', 'users.id', '=', 'order.user_id')
@@ -312,4 +311,5 @@ class OrderController extends Controller
             return response()->json(compact('message'),404);
         }
     }
+
 }

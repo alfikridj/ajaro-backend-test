@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['prefix' => 'v1', 'middleware' => 'cors'], function () {
-
+    Route::get('/city/{id}', 'OrderController@getCity');
     /* ------------ Auth ------------ */
     Route::post('login', ['as' => 'login','uses' => 'UserController@authenticate']);
     Route::group(['prefix' => 'register'], function () {
