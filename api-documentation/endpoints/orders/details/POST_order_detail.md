@@ -1,4 +1,4 @@
-# Order Resources
+# Order Detail Resources
 
 ```bash
 POST order/detail

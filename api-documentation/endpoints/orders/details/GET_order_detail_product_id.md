@@ -1,4 +1,4 @@
-# Order Resources
+# Order Detail Resources
 
 ```bash
 GET order/detail/product/:id

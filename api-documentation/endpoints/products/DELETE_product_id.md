@@ -1,4 +1,4 @@
-# Category Resources
+# Product Resources
 
 ```bash
 DELETE product/:id
