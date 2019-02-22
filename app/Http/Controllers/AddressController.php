@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use rizalafani\rajaongkirlaravel\RajaOngkirFacade;
 use App\Address;
 use App\User;
 use Illuminate\Http\Request;
@@ -54,7 +55,8 @@ class AddressController extends Controller
                     'phone' => $request->get('phone')
                 ]);
 
-                $data = Address::where('address.user_id', $data->user_id)
+                $data = Address::where('address.id', $data->id)
+                    ->where('address.user_id', $data->user_id)
                     ->join('users', 'users.id', '=', 'address.user_id')
                     ->select('address.*', 'users.name as user_name')
                     ->first();
@@ -80,7 +82,6 @@ class AddressController extends Controller
 
     public function show_by_id_address($id)
     {
-        if (JWTAuth::parseToken()->authenticate()->role == 'admin') {
             $data = Address::where('address.id', $id)
                 ->join('users', 'users.id', '=', 'address.user_id')
                 ->select('address.*', 'users.name as user_name')
@@ -92,10 +93,7 @@ class AddressController extends Controller
             } else {
                 return response()->json(compact('data'),200);
             }
-        } else if (JWTAuth::parseToken()->authenticate()->role == 'customer') {
-            $message = 'sorry, you are customer';
-            return response()->json(compact('message'),404);
-        }
+
     }
 
     public function show_all_by_user_id_address($id)
@@ -113,28 +111,28 @@ class AddressController extends Controller
         }
     }
 
-    public function show_id_by_user_id_address($id, $userId)
-    {
-        $findId = Address::where('address.id', $id)
-            ->join('users', 'users.id', '=', 'address.user_id')
-            ->select('address.*', 'users.name as user_name')
-            ->first();
-
-        if (!$findId) {
-            $message = 'the id does not exists';
-            return response()->json(compact('message'),404);
-
-        } else {
-            $data = Address::where('id', $id)->where('user_id', $userId)->first();
-
-            if ($data) {
-                return response()->json(compact('data'),200);
-            } else {
-                $message = 'the user id does not exists';
-                return response()->json(compact('message'),404);
-            }
-        }
-    }
+//    public function show_id_by_user_id_address($id, $userId)
+//    {
+//        $findId = Address::where('address.id', $id)
+//            ->join('users', 'users.id', '=', 'address.user_id')
+//            ->select('address.*', 'users.name as user_name')
+//            ->first();
+//
+//        if (!$findId) {
+//            $message = 'the id does not exists';
+//            return response()->json(compact('message'),404);
+//
+//        } else {
+//            $data = Address::where('id', $id)->where('user_id', $userId)->first();
+//
+//            if ($data) {
+//                return response()->json(compact('data'),200);
+//            } else {
+//                $message = 'the user id does not exists';
+//                return response()->json(compact('message'),404);
+//            }
+//        }
+//    }
 
     public function update_address(Request $request, $id)
     {
@@ -194,29 +192,48 @@ class AddressController extends Controller
         }
     }
 
-    public function delete_address_id_by_user_id($id, $userId)
+    public function delete_address($id)
     {
         if (JWTAuth::parseToken()->authenticate()->role == 'admin') {
             $message = 'sorry, you are admin';
             return response()->json(compact('message'),404);
         } else if (JWTAuth::parseToken()->authenticate()->role == 'customer') {
-            $findId = Address::where('id', $id)->first();
+            $findId = Address::find($id);
 
             if ($findId) {
-                $findUserId = Address::where('id', $id)->where('user_id', $userId)->first();
-
-                if ($findUserId) {
-                    $findId->delete();
-                    $message = 'address id '.$id.' successfully removed';
-                    return response()->json(compact('message'),200);
-                } else {
-                    $message = 'the user id does not exists';
-                    return response()->json(compact('message'),404);
-                }
+                $findId->delete();
+                $message = 'address id '.$id.' successfully removed';
+                return response()->json(compact('message'),200);
             } else {
                 $message = 'the id does not exists';
                 return response()->json(compact('message'),404);
             }
         }
     }
+
+//    public function delete_address_id_by_user_id($id, $userId)
+//    {
+//        if (JWTAuth::parseToken()->authenticate()->role == 'admin') {
+//            $message = 'sorry, you are admin';
+//            return response()->json(compact('message'),404);
+//        } else if (JWTAuth::parseToken()->authenticate()->role == 'customer') {
+//            $findId = Address::where('id', $id)->first();
+//
+//            if ($findId) {
+//                $findUserId = Address::where('id', $id)->where('user_id', $userId)->first();
+//
+//                if ($findUserId) {
+//                    $findId->delete();
+//                    $message = 'address id '.$id.' successfully removed';
+//                    return response()->json(compact('message'),200);
+//                } else {
+//                    $message = 'the user id does not exists';
+//                    return response()->json(compact('message'),404);
+//                }
+//            } else {
+//                $message = 'the id does not exists';
+//                return response()->json(compact('message'),404);
+//            }
+//        }
+//    }
 }

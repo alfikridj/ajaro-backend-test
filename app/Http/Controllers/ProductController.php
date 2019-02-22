@@ -129,7 +129,7 @@ class ProductController extends Controller
     {
         $name = $request->get('name');
 
-        $data = Product::where('product.name', $name)
+        $data = Product::where('product.name', 'like', '%'.$name.'%')
             ->join('category', 'category.id', '=', 'product.category_id')
             ->select('product.*', 'category.name as category_name')
             ->get();

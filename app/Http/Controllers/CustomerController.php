@@ -37,7 +37,7 @@ class CustomerController extends Controller
     {
         $name = $request->input('name');
 
-        $data = User::where('name', $name)->where('role', 'customer')->get();
+        $data = User::where('name', 'like', '%'.$name.'%')->where('role', 'customer')->get();
 
         if (!$data->isEmpty()) {
             return response()->json(compact('data'),200);
@@ -50,19 +50,14 @@ class CustomerController extends Controller
 
     public function delete_customer($id)
     {
-        if (JWTAuth::parseToken()->authenticate()->role == 'admin') {
-            $findId = User::where('id', $id)->where('role', 'customer')->first();
+        $findId = User::where('id', $id)->where('role', 'customer')->first();
 
-            if ($findId) {
-                $findId->delete();
-                $message = 'customer id '.$id.' successfully removed';
-                return response()->json(compact('message'),200);
-            } else {
-                $message = 'the id does not exists';
-                return response()->json(compact('message'),404);
-            }
-        } else if (JWTAuth::parseToken()->authenticate()->role == 'customer') {
-            $message = 'sorry, you are customer';
+        if ($findId) {
+            $findId->delete();
+            $message = 'customer id '.$id.' successfully removed';
+            return response()->json(compact('message'),200);
+        } else {
+            $message = 'the id does not exists';
             return response()->json(compact('message'),404);
         }
     }

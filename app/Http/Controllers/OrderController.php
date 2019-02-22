@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Order;
 use Illuminate\Support\Facades\Validator;
-use Agungjk\Rajaongkir\RajaOngkir;
+use rizalafani\rajaongkirlaravel\RajaOngkirFacade;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
 class OrderController extends Controller
@@ -36,7 +36,7 @@ class OrderController extends Controller
                 $validator = Validator::make($request->only([
                     'user_id',
 //                    'amount',
-                    'address_id'
+                    'address_id',
 //                    'shipping',
 //                    'tax'
                 ]), [
@@ -77,11 +77,12 @@ class OrderController extends Controller
                             ->where('order.user_id', $data->user_id)
                             ->where('order.address_id', $data->address_id)
                             ->join('users', 'users.id', '=', 'order.user_id')
-                            ->join('address', 'address.id', '=', 'order.user_id')
+                            ->join('address', 'address.id', '=', 'order.address_id')
                             ->select('order.*', 'users.name as user_name', 'address.city as address_city')
                             ->first();
 
                         return response()->json(compact('data'),200);
+
                     }
                 }
             } else if (Route::currentRouteName() == 'order.detail.create') {
@@ -149,7 +150,7 @@ class OrderController extends Controller
     {
         if (JWTAuth::parseToken()->authenticate()->role == 'admin') {
             $data = Order::join('users', 'users.id', '=', 'order.user_id')
-                ->join('address', 'address.id', '=', 'order.user_id')
+                ->join('address', 'address.id', '=', 'order.address_id')
                 ->select('order.*', 'users.name as user_name', 'address.city as address_city')
                 ->get();
 
@@ -162,46 +163,73 @@ class OrderController extends Controller
 
     public function show_by_id_order($id)
     {
-        if (JWTAuth::parseToken()->authenticate()->role == 'admin') {
             $order = Order::where('order.id', $id)
                 ->join('users', 'users.id', '=', 'order.user_id')
-                ->join('address', 'address.id', '=', 'order.user_id')
+                ->join('address', 'address.id', '=', 'order.address_id')
                 ->select('order.*', 'users.name as user_name', 'address.city as address_city')
                 ->first();
             $orderDetail = OrderDetail::where('order_id', $id)
                 ->join('order', 'order.id', '=', 'order_detail.order_id')
                 ->join('product', 'product.id', '=', 'order_detail.product_id')
-                ->select('order_detail.*', 'product.name as product_name', 'product.price as product_price', 'product.stock as product_stock')
+                ->select('order_detail.*', 'product.name as product_name', 'product.price as product_price', 'product.stock as product_stock', 'product.weight as product_weight')
                 ->get();
 
-            $amount = 0;
+            $totalPrice = 0;
+            $weight = 0;
+            $quantity = 0;
             foreach ($orderDetail as $key => $value) {
-                $amount += $value['product_price'];
+                $totalPrice += $value['product_price'];
+                $weight += $value['product_weight'];
+                $quantity += $value['quantity'];
             }
-            $tax = 1.5 / 100 * $amount;
+            $tax = 1.5 / 100 * $totalPrice;
+            $amount = $quantity * $totalPrice;
 
-//            $data = Order::where('order.id', $id)
-//                ->join('users', 'users.id', '=', 'order.user_id')
-//                ->join('address', 'address.id', '=', 'order.user_id')
-//                ->select('order.*', 'users.name as user_name', 'address.city as address_city')
-//                ->first();
-//            if (!$data) {
-//                $message = 'the id does not exists';
-//                return response()->json(compact('message'),200);
-//            } else {
-                return response()->json(compact('amount','tax', 'trackingNumber'),200);
-//            }
-        } else if (JWTAuth::parseToken()->authenticate()->role == 'customer') {
-            $message = 'sorry, you are customer';
-            return response()->json(compact('message'),404);
-        }
+            $city = RajaOngkirFacade::Kota()->search('city_name', $order->address_city)->get();
+
+            foreach ($city as $key => $value) {
+                $cityId = $value['city_id'];
+            }
+
+            $shippingList = RajaOngkirFacade::Cost([
+                'origin' => 501, // city from the admin
+                'destination' => $cityId,
+                'weight' => $weight,
+                'courier' => 'jne'
+            ])->get();
+
+            foreach ($shippingList as $key => $value) {
+                foreach ($value['costs'] as $keys => $values) {
+                    foreach ($values['cost'] as $keyss => $valuess) {
+                        $shipping = $valuess['value'];
+                    }
+                }
+            }
+
+            $order->update([
+                'amount' => $amount,
+                'shipping' => $shipping,
+                'tax' => $tax
+            ]);
+
+            $data = Order::where('order.id', $id)
+                ->join('users', 'users.id', '=', 'order.user_id')
+                ->join('address', 'address.id', '=', 'order.address_id')
+                ->select('order.*', 'users.name as user_name', 'address.city as address_city')
+                ->first();
+            if (!$data) {
+                $message = 'the id does not exists';
+                return response()->json(compact('message'),200);
+            } else {
+                return response()->json(compact('data'),200);
+            }
     }
 
     public function show_all_by_user_id_order($id)
     {
         $data = Order::where('order.user_id', $id)
             ->join('users', 'users.id', '=', 'order.user_id')
-            ->join('address', 'address.id', '=', 'order.user_id')
+            ->join('address', 'address.id', '=', 'order.address_id')
             ->select('order.*', 'users.name as user_name', 'address.city as address_city')
             ->get();
 
@@ -213,32 +241,31 @@ class OrderController extends Controller
         }
     }
 
-    public function show_id_by_user_id_order($id, $userId)
-    {
-        $findId = Order::find($id);
-//        $findOrderDetail = OrderDetail::where('order_id', $id)->get();
-
-        if (!$findId) {
-            $message = 'the id does not exists';
-            return response()->json(compact('message'),404);
-
-        } else {
-            $data = Order::where('order.id', $id)
-                ->where('order.user_id', $userId)
-                ->join('users', 'users.id', '=', 'order.user_id')
-                ->join('address', 'address.id', '=', 'order.user_id')
-                ->select('order.*', 'users.name as user_name', 'address.city as address_city')
-                ->first();
-
-
-            if ($data) {
-                return response()->json(compact('data'),200);
-            } else {
-                $message = 'the user id does not exists';
-                return response()->json(compact('message'),404);
-            }
-        }
-    }
+//    public function show_id_by_user_id_order($id, $userId)
+//    {
+//        $findId = Order::find($id);
+//
+//        if (!$findId) {
+//            $message = 'the id does not exists';
+//            return response()->json(compact('message'),404);
+//
+//        } else {
+//            $data = Order::where('order.id', $id)
+//                ->where('order.user_id', $userId)
+//                ->join('users', 'users.id', '=', 'order.user_id')
+//                ->join('address', 'address.id', '=', 'order.user_id')
+//                ->select('order.*', 'users.name as user_name', 'address.city as address_city')
+//                ->first();
+//
+//
+//            if ($data) {
+//                return response()->json(compact('data'),200);
+//            } else {
+//                $message = 'the user id does not exists';
+//                return response()->json(compact('message'),404);
+//            }
+//        }
+//    }
 
     /*--------------------------------
     -------- Order Detail ------------
@@ -304,6 +331,39 @@ class OrderController extends Controller
                 return response()->json(compact('data'),200);
             } else {
                 $message = 'the products id does not exists';
+                return response()->json(compact('message'),404);
+            }
+        } else if (JWTAuth::parseToken()->authenticate()->role == 'customer') {
+            $message = 'sorry, you are customer';
+            return response()->json(compact('message'),404);
+        }
+    }
+
+    public function tracking_number(Request $request, $id)
+    {
+        if (JWTAuth::parseToken()->authenticate()->role == 'admin') {
+            $validator = Validator::make($request->all(), [
+                'tracking_number' => 'required|string'
+            ]);
+
+            if ($validator->fails()) {
+                return response()->json($validator->errors(), 404);
+            }
+
+            $data = Order::where('order.id', $id)
+                ->join('users', 'users.id', '=', 'order.user_id')
+                ->join('address', 'address.id', '=', 'order.address_id')
+                ->select('order.*', 'users.name as user_name', 'address.city as address_city')
+                ->first();
+
+            if ($data) {
+                $data->update([
+                    'tracking_number' => $request->get('tracking_number')
+                ]);
+
+                return response()->json(compact('data'),200);
+            } else {
+                $message = 'the order id does not exists';
                 return response()->json(compact('message'),404);
             }
         } else if (JWTAuth::parseToken()->authenticate()->role == 'customer') {

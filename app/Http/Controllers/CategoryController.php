@@ -77,7 +77,7 @@ class CategoryController extends Controller
     {
         $name = $request->get('name');
 
-        $data = Category::where('name', $name)->get();
+        $data = Category::where('name', 'like', '%'.$name.'%')->get();
 
         if (!$data->isEmpty()) {
             return response()->json(compact('data'),200);
@@ -143,7 +143,7 @@ class CategoryController extends Controller
                 return response()->json(compact('message'),404);
             } else {
                 $data->delete();
-                $message = 'products id '.$id.' successfully removed';
+                $message = 'category id '.$id.' successfully removed';
                 return response()->json(compact('status','message'),200);
             }
         } else if (JWTAuth::parseToken()->authenticate()->role == 'customer') {

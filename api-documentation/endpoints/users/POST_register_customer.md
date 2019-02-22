@@ -1,17 +1,17 @@
 # User Resources
 
 ```bash
-POST register/admin
+POST register/customer
 ```
 ## Description
-register the user as admin to create new account
+register the user as customer to create new account
 ***
 ## Example
 
 **Request**
 
 ```bash
-http://127.0.0.1:8000/api/v1/register/admin
+http://127.0.0.1:8000/api/v1/register/customer
 ```
 - Headers
     - ###### Content-Type
@@ -28,14 +28,14 @@ http://127.0.0.1:8000/api/v1/register/admin
 ```bash
 {
     "data": {
-        "name": "John London",
-        "email": "jlondon@email.com",
+        "name": "John Paris",
+        "email": "jparis@email.com",
         "phone": "087238374712",
-        "image": "https://github.com/identicons/ri.png",
-        "role": "admin",
-        "updated_at": "2019-02-21 16:07:57",
-        "created_at": "2019-02-21 16:07:57",
-        "id": 2
+        "image": "https://github.com/identicons/lF.png",
+        "role": "customer",
+        "updated_at": "2019-02-21 16:07:59",
+        "created_at": "2019-02-21 16:07:59",
+        "id": 1
     },
     "message": "login here http://127.0.0.1:8000/api/v1/login"
 }

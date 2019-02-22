@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'end_point_api' => env('RAJAONGKIR_ENDPOINT', 'https://rajaongkir.com/api/starter'),
+    'end_point_api' => env('RAJAONGKIR_ENDPOINTAPI', 'https://rajaongkir.com/api/starter'),
 
     /*
     |--------------------------------------------------------------------------
@@ -24,5 +24,5 @@ return [
     |
     */
 
-    'api_key' => env('RAJAONGKIR_KEY', '06879f55636d4856b2afbf7444e4b024'),
+    'api_key' => env('RAJAONGKIR_APIKEY', '06879f55636d4856b2afbf7444e4b024'),
 ];

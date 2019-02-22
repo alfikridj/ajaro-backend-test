@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['prefix' => 'v1', 'middleware' => 'cors'], function () {
-    Route::get('/city/{id}', 'OrderController@getCity');
     /* ------------ Auth ------------ */
     Route::post('login', ['as' => 'login','uses' => 'UserController@authenticate']);
     Route::group(['prefix' => 'register'], function () {
@@ -61,10 +60,11 @@ Route::group(['prefix' => 'v1', 'middleware' => 'cors'], function () {
         /* ------------ Order ------------ */
         Route::group(['prefix' => 'order'], function () {
             Route::post('/', ['as' => 'order.create', 'uses' => 'OrderController@create_order']);
+            Route::post('/{id}/trackingnumber', ['as' => 'order.trackingnumber', 'uses' => 'OrderController@tracking_number']);
             Route::get('/', ['as' => 'order.show.all', 'uses' => 'OrderController@show_all_order']);
             Route::get('/{id}', ['as' => 'order.show.id', 'uses' => 'OrderController@show_by_id_order']);
             Route::get('/user/{userid}', ['as' => 'order.show.all.userid', 'uses' => 'OrderController@show_all_by_user_id_order']);
-            Route::get('/{id}/user/{userid}', ['as' => 'order.show.id.userid', 'uses' => 'OrderController@show_id_by_user_id_order']);
+//            Route::get('/{id}/user/{userid}', ['as' => 'order.show.id.userid', 'uses' => 'OrderController@show_id_by_user_id_order']);
 
             /* ------------ Order Detail ------------ */
             Route::group(['prefix' => 'detail'], function () {
@@ -83,8 +83,8 @@ Route::group(['prefix' => 'v1', 'middleware' => 'cors'], function () {
             Route::post('/{id}', ['as' => 'address.update', 'uses' => 'AddressController@update_address']);
             Route::get('/{id}', ['as' => 'address.show.id', 'uses' => 'AddressController@show_by_id_address']);
             Route::get('/user/{id}', ['as' => 'address.show.all.userid', 'uses' => 'AddressController@show_all_by_user_id_address']);
-            Route::get('/{id}/user/{userid}', ['as' => 'address.show.all.userid', 'uses' => 'AddressController@show_id_by_user_id_address']);
-            Route::delete('/{id}/user/{userid}', ['as' => 'address.delete', 'uses' => 'AddressController@delete_address_id_by_user_id']);
+//            Route::get('/{id}/user/{userid}', ['as' => 'address.show.all.userid', 'uses' => 'AddressController@show_id_by_user_id_address']);
+            Route::delete('/{id}', ['as' => 'address.delete', 'uses' => 'AddressController@delete_address']);
         });
     });
 });
