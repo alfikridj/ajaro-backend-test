@@ -72,25 +72,25 @@ php artisan serve
 
 <b>Address Resources</b>
 
-- **[`POST` address](https://github.com/alfikridj/ajaro-backend-test/tree/master/api-documentation/endpoints/addresses/GET_address.md)**
+- **[`POST` address](https://github.com/alfikridj/ajaro-backend-test/tree/master/api-documentation/endpoints/addresses/POST_address.md)**
 - **[`GET` address](https://github.com/alfikridj/ajaro-backend-test/tree/master/api-documentation/endpoints/addresses/GET_address.md)**
 - **[`GET` address/:id](https://github.com/alfikridj/ajaro-backend-test/tree/master/api-documentation/endpoints/addresses/GET_address_id.md)**
 - **[`GET` address/user/:id](https://github.com/alfikridj/ajaro-backend-test/tree/master/api-documentation/endpoints/addresses/GET_address_user_id.md)**
 - **[`POST` address/:id](https://github.com/alfikridj/ajaro-backend-test/tree/master/api-documentation/endpoints/addresses/POST_address_id.md)**
-- **[`DELETE` address/:id](https://github.com/alfikridj/ajaro-backend-test/tree/master/api-documentation/endpoints/addresses/DELETE_customer_id.md)**
+- **[`DELETE` address/:id](https://github.com/alfikridj/ajaro-backend-test/tree/master/api-documentation/endpoints/addresses/DELETE_address_id.md)**
 
 <b>Order Resources</b>
 
-- **[`POST` order](https://github.com/alfikridj/ajaro-backend-test/api-documentation/master/endpoints/orders/POST_order.md)**
-- **[`GET` order](https://github.com/alfikridj/ajaro-backend-test/api-documentation/master/endpoints/orders/GET_order.md)**
-- **[`GET` order/:id](https://github.com/alfikridj/ajaro-backend-test/api-documentation/master/endpoints/orders/GET_order_id.md)**
-- **[`GET` order/user/:id](https://github.com/alfikridj/ajaro-backend-test/api-documentation/master/endpoints/orders/GET_order_user_id.md)**
-- **[`POST` order/:id/trackingnumber](https://github.com/alfikridj/ajaro-backend-test/api-documentation/master/endpoints/orders/POST_order_id_trackingnumber.md)**
+- **[`POST` order](https://github.com/alfikridj/ajaro-backend-test/tree/master/api-documentation/endpoints/orders/POST_order.md)**
+- **[`GET` order](https://github.com/alfikridj/ajaro-backend-test/tree/master/api-documentation/endpoints/orders/GET_order.md)**
+- **[`GET` order/:id](https://github.com/alfikridj/ajaro-backend-test/tree/master/api-documentation/endpoints/orders/GET_order_id.md)**
+- **[`GET` order/user/:id](https://github.com/alfikridj/ajaro-backend-test/tree/master/api-documentation/endpoints/orders/GET_order_user_id.md)**
+- **[`POST` order/:id/trackingnumber](https://github.com/alfikridj/ajaro-backend-test/tree/master/api-documentation/endpoints/orders/POST_order_id_trackingnumber.md)**
 
 <b>Order Detail Resources</b>
 
-- **[`POST` order/detail](https://github.com/alfikridj/ajaro-backend-test/api-documentation/master/endpoints/orders/details/POST_order_detail.md)**
-- **[`GET` order/detail/all](https://github.com/alfikridj/ajaro-backend-test/api-documentation/master/endpoints/orders/details/GET_order_detail_all.md)**
-- **[`GET` order/detail/:id](https://github.com/alfikridj/ajaro-backend-test/api-documentation/master/endpoints/orders/details/GET_order_detail_id.md)**
-- **[`GET` order/detail/order/:id](https://github.com/alfikridj/ajaro-backend-test/api-documentation/master/endpoints/orders/details/GET_order_detail_order_id.md)**
-- **[`GET` order/detail/product/:id](https://github.com/alfikridj/ajaro-backend-test/api-documentation/master/endpoints/orders/details/GET_order_detail_product_id.md)**
+- **[`POST` order/detail](https://github.com/alfikridj/ajaro-backend-test/tree/master/api-documentation/endpoints/orders/details/POST_order_detail.md)**
+- **[`GET` order/detail/all](https://github.com/alfikridj/ajaro-backend-test/tree/master/api-documentation/endpoints/orders/details/GET_order_detail_all.md)**
+- **[`GET` order/detail/:id](https://github.com/alfikridj/ajaro-backend-test/tree/master/api-documentation/endpoints/orders/details/GET_order_detail_id.md)**
+- **[`GET` order/detail/order/:id](https://github.com/alfikridj/ajaro-backend-test/tree/master/api-documentation/endpoints/orders/details/GET_order_detail_order_id.md)**
+- **[`GET` order/detail/product/:id](https://github.com/alfikridj/ajaro-backend-test/tree/master/api-documentation/endpoints/orders/details/GET_order_detail_product_id.md)**

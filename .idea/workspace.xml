@@ -4,64 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/readme.md" line="9" mnemonic="8" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5dda33ff-34fc-4651-a106-e02fad45d479" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/api-documentation/endpoints/addresses/DELETE_address_id.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-documentation/endpoints/addresses/GET_address.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-documentation/endpoints/addresses/GET_address_id.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-documentation/endpoints/addresses/GET_address_user_id.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-documentation/endpoints/addresses/POST_address.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-documentation/endpoints/addresses/POST_address_id.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-documentation/endpoints/categories/DELETE_category_id.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-documentation/endpoints/categories/GET_category.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-documentation/endpoints/categories/GET_category_id.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-documentation/endpoints/categories/POST_category.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-documentation/endpoints/categories/POST_category_id.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-documentation/endpoints/categories/POST_category_name.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-documentation/endpoints/customers/DELETE_customer_id.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-documentation/endpoints/customers/GET_customer.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-documentation/endpoints/customers/GET_customer_id.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-documentation/endpoints/customers/POST_customer_name.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-documentation/endpoints/orders/GET_order.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-documentation/endpoints/orders/GET_order_id.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-documentation/endpoints/orders/GET_order_user_id.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-documentation/endpoints/orders/POST_order.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-documentation/endpoints/orders/POST_order_id_trackingnumber.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-documentation/endpoints/orders/details/GET_order_detail_all.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-documentation/endpoints/orders/details/GET_order_detail_id.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-documentation/endpoints/orders/details/GET_order_detail_order_id.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-documentation/endpoints/orders/details/GET_order_detail_product_id.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-documentation/endpoints/orders/details/POST_order_detail.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-documentation/endpoints/products/DELETE_product_id.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-documentation/endpoints/products/GET_product.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-documentation/endpoints/products/GET_product_category_id.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-documentation/endpoints/products/GET_product_id.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-documentation/endpoints/products/POST_product.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-documentation/endpoints/products/POST_product_id.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-documentation/endpoints/products/POST_product_name.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-documentation/endpoints/users/GET_user.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-documentation/endpoints/users/POST_login.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-documentation/endpoints/users/POST_register_customer.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-documentation/endpoints/users/POST_update_admin.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-documentation/endpoints/users/POST_update_customer.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/products/YAMAHA_Gitar_Classic_C-315.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/products/ertiga.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/users/admins/Travis-Kalanick.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/users/customers/apv.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-documentation/endpoints/users/POST_register_admin.md" beforeDir="false" afterPath="$PROJECT_DIR$/api-documentation/endpoints/users/POST_register_admin.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AddressController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AddressController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CustomerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CustomerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/rajaongkir.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/rajaongkir.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-    </list>
+    <list default="true" id="5dda33ff-34fc-4651-a106-e02fad45d479" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,45 +16,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OrderController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="696">
-              <caret line="241" column="5" lean-forward="true" selection-start-line="241" selection-start-column="5" selection-end-line="241" selection-end-column="5" />
-              <folding>
-                <element signature="e#40#56#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProductController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-362">
-              <caret line="216" column="61" lean-forward="true" selection-start-line="216" selection-start-column="61" selection-end-line="216" selection-end-column="61" />
-              <folding>
-                <element signature="e#40#57#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.env">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="22" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/readme.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="122">
-                <caret line="23" column="16" lean-forward="true" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+              <first_editor relative-caret-position="-116">
+                <caret line="27" column="3" lean-forward="true" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="3" />
               </first_editor>
               <second_editor />
             </state>
@@ -338,6 +248,24 @@
             <path>
               <item name="AjaroTest" type="b2602c69:ProjectViewProjectNode" />
               <item name="AjaroTest" type="462c0819:PsiDirectoryNode" />
+              <item name="api-documentation" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AjaroTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AjaroTest" type="462c0819:PsiDirectoryNode" />
+              <item name="api-documentation" type="462c0819:PsiDirectoryNode" />
+              <item name="endpoints" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AjaroTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AjaroTest" type="462c0819:PsiDirectoryNode" />
+              <item name="api-documentation" type="462c0819:PsiDirectoryNode" />
+              <item name="endpoints" type="462c0819:PsiDirectoryNode" />
+              <item name="customers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AjaroTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AjaroTest" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -350,19 +278,6 @@
               <item name="AjaroTest" type="b2602c69:ProjectViewProjectNode" />
               <item name="AjaroTest" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AjaroTest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AjaroTest" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AjaroTest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AjaroTest" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-              <item name="products" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -424,12 +339,12 @@
       <workItem from="1550638701186" duration="18704000" />
       <workItem from="1550717432924" duration="229000" />
       <workItem from="1550742754362" duration="39102000" />
-      <workItem from="1550819342974" duration="23949000" />
+      <workItem from="1550819342974" duration="24293000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="125935000" />
+    <option name="totallyTimeSpent" value="126279000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -442,6 +357,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="22" width="1382" height="754" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21633889" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -458,7 +374,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.30595812" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.30595812" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -757,16 +673,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api-documentation/endpoints/customers/DELETE_customer_id.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="221">
-            <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api-documentation/endpoints/customers/GET_customer.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -917,16 +823,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProductController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-362">
-          <caret line="216" column="61" lean-forward="true" selection-start-line="216" selection-start-column="61" selection-end-line="216" selection-end-column="61" />
-          <folding>
-            <element signature="e#40#57#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OrderController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="696">
@@ -937,9 +833,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProductController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="65" column="42" lean-forward="true" selection-start-line="65" selection-start-column="42" selection-end-line="65" selection-end-column="42" />
+          <folding>
+            <element signature="e#40#57#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api-documentation/endpoints/customers/DELETE_customer_id.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="153">
+            <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
+        <state relative-caret-position="34">
           <caret line="11" column="22" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="22" />
         </state>
       </provider>
@@ -947,8 +863,8 @@
     <entry file="file://$PROJECT_DIR$/readme.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="122">
-            <caret line="23" column="16" lean-forward="true" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+          <first_editor relative-caret-position="-116">
+            <caret line="27" column="3" lean-forward="true" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="3" />
           </first_editor>
           <second_editor />
         </state>
